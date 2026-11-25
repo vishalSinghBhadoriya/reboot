@@ -2,6 +2,8 @@
 
 Edit `src/config/business.ts` with verified information before launch.
 
+Set `instagram.profile` to the public Instagram profile URL or its @handle. Add up to three public post or Reel URLs to `instagram.posts` for a curated feed. The homepage uses a profile embed when only the profile is set. Enable website embeds in Instagram for any content you want visitors to load on the page. The sample preview is replaced automatically once valid links are configured, and `instagram.preview` controls whether the sample preview appears before then.
+
 | Field | Value to provide |
 | --- | --- |
 | name, logo | Actual shop name and local logo asset URL |

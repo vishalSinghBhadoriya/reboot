@@ -2,6 +2,7 @@ import {assetUrl} from '../utils/assets'
 import {ArrowUpRight,AudioLines,BatteryCharging,Smartphone,Wrench} from 'lucide-react'
 import {Link} from 'react-router-dom'
 import DeviceHero from '../features/repairs/DeviceHero'
+import BusinessInstagramFeed from '../components/InstagramFeed'
 import {Action,WhatsApp} from '../components/ui'
 import {useReveal} from '../animations/useReveal'
 import {Anatomy} from '../features/repairs/Anatomy'
@@ -29,5 +30,6 @@ export default function Home(){
  <section className="section lab"><div className="section-kicker"><span>06 / INSIDE THE LAB</span></div><div className="section-title"><h2>From fault to fix.</h2><p>See the steps your device goes through after you bring it in.</p></div><ol className="timeline">{process.map(item=><li key={item}>{item}</li>)}</ol></section>
  <section className="section light editorial"><div className="eyebrow"><b/> REPAIR OR REPLACE?</div><h2>Tech deserves<br/>a second life.</h2><div><p>A repair can cost less than replacing a device and keep it useful for longer.</p><p>Replacing a worn part can also keep the rest of the device out of the e-waste stream. Ask for an inspection and use the quote to decide what makes sense.</p><Action to="/about" secondary>About REBOOT</Action></div></section>
  <section className="section final-cta"><div className="eyebrow"><b/> READY WHEN YOU ARE</div><h2>YOUR TECH.<br/>BACK TO LIFE.</h2><div className="actions"><Action to="/book-repair">Book a repair</Action><WhatsApp message="Hi REBOOT, I’d like to ask about a repair." label="Chat on WhatsApp"/><Action to="/shop" secondary>Explore store</Action></div></section>
+ <BusinessInstagramFeed/>
  </div>
 }
