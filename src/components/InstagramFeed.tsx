@@ -10,12 +10,12 @@ const previewItems = [
   {image:'/images/headphones.webp', alt:'Graphite over-ear headphones', title:'Gear for the everyday'},
 ]
 
-export function InstagramFeed({profileUrl, postUrls, preview = false}: {profileUrl: string; postUrls: string[]; preview?: boolean}) {
+export function InstagramFeed({profileUrl, postUrls}: {profileUrl: string; postUrls: string[]}) {
   const profile = instagramProfile(profileUrl)
   const posts = instagramPosts(postUrls)
   const items = posts.length ? posts : profile ? [profile.url] : []
 
-  if (!items.length) return preview ? <InstagramPreview/> : null
+  if (!items.length) return null
 
   return (
     <section className="section instagram-feed" aria-labelledby="instagram-title">
@@ -43,7 +43,13 @@ export function InstagramFeed({profileUrl, postUrls, preview = false}: {profileU
   )
 }
 
-function InstagramPreview() {
+export default function BusinessInstagramFeed() {
+  const {profile, posts, preview} = business.instagram
+  if (instagramProfile(profile) || instagramPosts(posts).length) {
+    return <InstagramFeed profileUrl={profile} postUrls={posts}/>
+  }
+  if (!preview) return null
+
   return (
     <section className="section instagram-feed" aria-labelledby="instagram-preview-title">
       <div className="section-title">
@@ -63,9 +69,4 @@ function InstagramPreview() {
       </div>
     </section>
   )
-}
-
-export default function BusinessInstagramFeed() {
-  const {profile, posts, preview} = business.instagram
-  return <InstagramFeed profileUrl={profile} postUrls={posts} preview={preview}/>
 }

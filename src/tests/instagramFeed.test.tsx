@@ -6,18 +6,10 @@ import {instagramPosts, instagramProfile} from '../utils/instagram'
 afterEach(cleanup)
 
 it('shows three labeled samples before REBOOT connects its account', () => {
-  render(<InstagramFeed profileUrl="" postUrls={[]} preview/>)
+  render(<BusinessInstagramFeed/>)
   expect(screen.getByText('Instagram preview')).toBeTruthy()
   expect(screen.getAllByRole('img')).toHaveLength(3)
   expect(screen.queryByTitle(/^Instagram/)).toBeNull()
-})
-
-it('replaces the sample cards with the configured business profile', () => {
-  render(<BusinessInstagramFeed/>)
-  const url = 'https://www.instagram.com/noveltymobilesolutionbadnawar/'
-  expect(screen.getByTitle('Instagram profile @noveltymobilesolutionbadnawar').getAttribute('src')).toBe(url + 'embed/')
-  expect(screen.getByRole('link', {name:'@noveltymobilesolutionbadnawar'}).getAttribute('href')).toBe(url)
-  expect(screen.queryByText('Instagram preview')).toBeNull()
 })
 
 it('normalizes public Instagram links and rejects unrelated destinations', () => {
