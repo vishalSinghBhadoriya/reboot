@@ -1,0 +1,3 @@
+import{K as n,k as o,O as s}from"./index-C-IfoQ4z.js";function d(e,t,i,a="REBOOT"){return[a+" order enquiry",...n(e).map(r=>r.product.name+" / "+r.selection.label+" · "+r.quantity+" × "+o(r.selection.price)+" = "+o(r.total)),"Estimated total: "+o(s(e)+(i??0)),"Name: "+t.name,"Mobile: "+t.mobile,"Fulfilment: "+t.method,...t.method==="Delivery"?["Delivery: "+(i===null?"Charge to be confirmed":o(i)),"Address: "+t.address]:[],...t.notes?["Notes: "+t.notes]:[]].join(`
+`)}function p(e,t="REBOOT"){return[t+" repair appointment enquiry","Name: "+e.name,"Mobile: "+e.mobile,"Device: "+e.brand+" "+e.model,"Repair: "+e.issue,"Preferred appointment: "+e.date+" at "+e.time,...e.notes?["Details: "+e.notes]:[],...e.pickup?["Pickup requested"]:[]].join(`
+`)}export{d as o,p as r};
