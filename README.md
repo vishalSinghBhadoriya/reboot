@@ -32,7 +32,14 @@ Images are served locally in WebP. The main artwork is requested at high priorit
 
 ### GitHub Pages
 
-The workflow in `.github/workflows/pages.yml` publishes pushes to `main` when the repository uses GitHub Actions as its Pages source. It derives the Vite base path from Pages and writes entry files for product links and other site routes. It also generates the sitemap for the Pages URL.
+GitHub Pages serves the root of the `gh-pages` branch. The workflow on `main` runs lint and tests and verifies the Pages build.
+
+```sh
+npm run build -- --base /reboot/
+node --experimental-strip-types scripts/prepare-pages.mjs https://vishalsinghbhadoriya.github.io/reboot/
+```
+
+To publish an update, commit the generated `dist/` contents to the root of `gh-pages` and push that branch. Keep the branch's `.nojekyll` file so Pages serves the build as generated. The preparation script writes entry files for direct route links and generates the Pages sitemap.
 
 ### Vercel
 
