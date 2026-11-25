@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /reboot/cart
+Disallow: /reboot/checkout
+Disallow: /reboot/wishlist
+Sitemap: https://vishalsinghbhadoriya.github.io/reboot/sitemap.xml
